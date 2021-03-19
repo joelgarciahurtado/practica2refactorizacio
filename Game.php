@@ -32,7 +32,8 @@ class Game {
         $this->sportsQuestions = array();
         $this->rockQuestions = array();
 
-        for ($i = 0; $i < 50; $i++) {
+		define('Questions','50');
+        for ($i = 0; $i < Questions; $i++) {
 			array_push($this->popQuestions, "Pop Question " . $i);
 			array_push($this->scienceQuestions, ("Science Question " . $i));
 			array_push($this->sportsQuestions, ("Sports Question " . $i));
@@ -45,13 +46,18 @@ class Game {
 	}
 
 	function isPlayable() {
-		return ($this->howManyPlayers() >= 2);
+
+		define('players','2');
+		return ($this->howManyPlayers() >= players);
 	}
 
 	function add($playerName) {
+
+		define('places','0');
+		define('purses','0');
 	   array_push($this->players, $playerName);
-	   $this->places[$this->howManyPlayers()] = 0;
-	   $this->purses[$this->howManyPlayers()] = 0;
+	   $this->places[$this->howManyPlayers()] = places;
+	   $this->purses[$this->howManyPlayers()] = purses;
 	   $this->inPenaltyBox[$this->howManyPlayers()] = false;
 
 	    echoln($playerName . " was added");
